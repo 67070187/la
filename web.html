@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ตัวอย่างเว็บ Responsive</title>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  /* มือถือ */
+  @media (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+    header {
+      font-size: 18px;
+    }
+  }
+
+  /* แท็บเล็ต */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    body {
+      background-color: lightgreen;
+    }
+    header {
+      font-size: 22px;
+    }
+  }
+
+  /* คอมพิวเตอร์ */
+  @media (min-width: 1025px) {
+    body {
+      background-color: lightyellow;
+    }
+    header {
+      font-size: 26px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>เว็บไซต์ Responsive</h1>
+</header>
+
+<div class="container">
+  <p>ลองเปิดหน้านี้ในมือถือ, แท็บเล็ต หรือคอมพิวเตอร์</p>
+  <p>สีพื้นหลังและขนาดตัวอักษรจะเปลี่ยนตามขนาดหน้าจอ</p>
+</div>
+
+</body>
+</html>
