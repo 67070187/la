@@ -3,64 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ตัวอย่างเว็บ Responsive</title>
+<title>ร้านรองเท้า</title>
 <style>
   body {
     margin: 0;
     font-family: sans-serif;
-    text-align: center;
   }
 
-  header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
   }
 
+  .navbar h1 {
+    font-size: 24px;
+  }
+
+  .navbar nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  /* Layout */
   .container {
+    display: flex;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
     padding: 20px;
+    border-right: 1px solid #ddd;
   }
 
-  /* มือถือ */
-  @media (max-width: 600px) {
-    body {
-      background-color: lightblue;
-    }
-    header {
-      font-size: 18px;
-    }
+  .sidebar h3 {
+    margin-top: 0;
   }
 
-  /* แท็บเล็ต */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    body {
-      background-color: lightgreen;
-    }
-    header {
-      font-size: 22px;
-    }
+  /* Product Grid */
+  .products {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
   }
 
-  /* คอมพิวเตอร์ */
-  @media (min-width: 1025px) {
-    body {
-      background-color: lightyellow;
+  .product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product img {
+    width: 100%;
+    height: 300;
+    object-fit: cover;
+  }
+
+  .product .info {
+    padding: 10px;
+  }
+
+  .product h4 {
+    margin: 0 0 5px;
+  }
+
+  .product p {
+    margin: 5px 0;
+    color: gray;
+  }
+
+  .product .price {
+    font-weight: bold;
+    color: #000;
+  }
+
+  /* Responsive: ซ่อน sidebar บนจอเล็ก */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
     }
-    header {
-      font-size: 26px;
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
     }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>เว็บไซต์ Responsive</h1>
-</header>
+<!-- Navbar -->
+<div class="navbar">
+  <h1>MySneaker</h1>
+  <nav>
+    <a href="#">ใหม่</a>
+    <a href="#">ผู้ชาย</a>
+    <a href="#">ผู้หญิง</a>
+    <a href="#">เด็ก</a>
+    <a href="#">ลดราคา</a>
+  </nav>
+</div>
 
+<!-- Main content -->
 <div class="container">
-  <p>ลองเปิดหน้านี้ในมือถือ, แท็บเล็ต หรือคอมพิวเตอร์</p>
-  <p>สีพื้นหลังและขนาดตัวอักษรจะเปลี่ยนตามขนาดหน้าจอ</p>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>หมวดหมู่</h3>
+    <ul>
+      <li>วิ่ง</li>
+      <li>บาสเก็ตบอล</li>
+      <li>ลำลอง</li>
+    </ul>
+    <h3>ราคา</h3>
+    <ul>
+      <li>ต่ำกว่า 2,000</li>
+      <li>2,000 - 5,000</li>
+      <li>5,000+</li>
+    </ul>
+  </div>
+
+  <!-- Products -->
+  <div class="products">
+    <div class="product">
+      <img src="https://crocs.co.th/cdn/shop/files/0196265207664_01_1565c062-0ee7-44af-b493-0ea9f0d291b1.jpg?v=1702911470/300x200" alt="รองเท้า">
+      <div class="info">
+        <h4>รุ่น A</h4>
+        <p>รองเท้าวิ่ง</p>
+        <p class="price">฿3,000</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="รองเท้า">
+      <div class="info">
+        <h4>รุ่น B</h4>
+        <p>รองเท้าลำลอง</p>
+        <p class="price">฿2,500</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="รองเท้า">
+      <div class="info">
+        <h4>รุ่น C</h4>
+        <p>รองเท้าบาสเก็ตบอล</p>
+        <p class="price">฿4,200</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 </body>
